@@ -1,4 +1,6 @@
-class Photographer {
+import { Api } from './Api.js';
+
+export class Photographer {
 
     id;
     name;
@@ -20,74 +22,8 @@ class Photographer {
         this.portrait = photographer.portrait;
     }
 
-    static getPhotographers() {
-        const photographersJson = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Ma data test",
-                "id": 3,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 4,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Ma data test",
-                "id": 5,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 6,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-
-        let photographersObjects = [];
-        photographersJson.forEach((photographer) => {
-            photographersObjects.push(new Photographer(photographer));
-        });
-
-        return photographersObjects;
-    }
-
     static async displayData() {
-        const photographers = await Photographer.getPhotographers();
+        const photographers = await Api.getPhotographers();
         photographers.forEach((photographer) => {
             const userCardDOM = photographer.getUserCardDOM();
             Photographer.photographersSection.appendChild(userCardDOM);
@@ -95,18 +31,28 @@ class Photographer {
     };
 
     getUserCardDOM() {
+        // template string
         const picture = `assets/photographers/${this.portrait}`;
         const article = document.createElement('article');
         const img = document.createElement('img');
-        img.setAttribute("src", picture)
+        img.setAttribute("src", picture);
+        img.setAttribute('alt', this.name);
         const h2 = document.createElement('h2');
         h2.textContent = this.name;
         const location = document.createElement('p');
         location.classList.add('location');
         location.textContent = this.country + ', ' + this.city;
+        const description = document.createElement('p');
+        description.classList.add('description');
+        description.textContent = this.tagline;
+        const price = document.createElement('span');
+        price.classList.add('price');
+        price.textContent = this.price + '€/jour';
         article.appendChild(img);
         article.appendChild(h2);
         article.appendChild(location);
+        article.appendChild(description);
+        article.appendChild(price);
         return article;
     }
 }
