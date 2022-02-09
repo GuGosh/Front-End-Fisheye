@@ -26,33 +26,20 @@ export class Photographer {
         const photographers = await Api.getPhotographers();
         photographers.forEach((photographer) => {
             const userCardDOM = photographer.getUserCardDOM();
-            Photographer.photographersSection.appendChild(userCardDOM);
+            Photographer.photographersSection.insertAdjacentHTML('beforeend', userCardDOM);
         });
     };
 
     getUserCardDOM() {
-        // template string
-        const picture = `assets/photographers/${this.portrait}`;
-        const article = document.createElement('article');
-        const img = document.createElement('img');
-        img.setAttribute("src", picture);
-        img.setAttribute('alt', this.name);
-        const h2 = document.createElement('h2');
-        h2.textContent = this.name;
-        const location = document.createElement('p');
-        location.classList.add('location');
-        location.textContent = this.country + ', ' + this.city;
-        const description = document.createElement('p');
-        description.classList.add('description');
-        description.textContent = this.tagline;
-        const price = document.createElement('span');
-        price.classList.add('price');
-        price.textContent = this.price + '€/jour';
-        article.appendChild(img);
-        article.appendChild(h2);
-        article.appendChild(location);
-        article.appendChild(description);
-        article.appendChild(price);
-        return article;
+        const picture = 'assets/photographers/' + this.portrait;
+        let html = '';
+        html += '<article>';
+        html += '<img src="' + picture + '" alt="' + this.name + '" />';
+        html += '<h2>' + this.name + '</h2>';
+        html += '<p class="location">' + this.country + ', ' + this.city + '</p>';
+        html += '<p class="description">' + this.tagline + '</p>';
+        html += '<span class="price">' + this.price + '€/jour</span>'
+        html += '</article>';
+        return html;
     }
 }
