@@ -1,9 +1,21 @@
+
+
+const modal = document.getElementById('contact_modal');
+const buttonOpenModal = document.querySelectorAll('.open-modal');
+const buttonCloseModal = document.querySelectorAll('.close-modal');
+
+buttonOpenModal.forEach(element => {
+    element.addEventListener('click', displayModal);
+});
+
+buttonCloseModal.forEach(element => {
+    element.addEventListener('click', closeModal);
+});
+
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+	modal.style.display = 'block';
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+    modal.style.display = 'none';
 }
