@@ -10,7 +10,7 @@
         align-items: center;
         flex-direction: column;
         h2 {
-            color: $primary-color--light;
+            color: $secondary-color;
             font-size: 36px;
         }
         img {
@@ -29,7 +29,7 @@
         }
         .price {
             font-size: 1.4rem;
-            color: $secondary-color--light;
+            color: $tiers-color;
         }
     }
 }
