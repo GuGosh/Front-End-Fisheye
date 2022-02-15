@@ -21,6 +21,16 @@ h1.secondary {
   color: #D3573C;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Layout */
 header {
   display: flex;
@@ -99,6 +109,21 @@ header .logo {
   border-radius: 50%;
 }
 
+.medias-photographer {
+  margin: 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+.medias-photographer .media .infos-media {
+  display: flex;
+  justify-content: space-between;
+}
+.medias-photographer .media .infos-media p {
+  color: #901C1C;
+  font-size: 1.6rem;
+}
+
 .short-fixed-infos {
   display: flex;
   justify-content: space-around;
@@ -153,6 +178,19 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+form#filtre {
+  margin: 30px 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+}
+form#filtre label {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 20px;
 }
 
 #contact_modal {

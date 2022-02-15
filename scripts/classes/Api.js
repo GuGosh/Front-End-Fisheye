@@ -2,20 +2,30 @@ import { Photographer } from './Photographer.js';
 
 export class Api {
 
+    static urlApi = './data/photographers.json';
+    static photographers;
+
     static async getPhotographers() {
-        let url = './data/photographers.json';
-        let response = await fetch(url);
+        if (self.photographers) {
+            return self.photographers;
+        }
+
+        let response = await fetch(Api.urlApi);
         const photographersJson = await response.json();
 
-        // utiliser map
-        let photographersObjects = [];
-        photographersJson.photographers.map((photographer) => { })
-        photographersJson.photographers.forEach((photographer) => {
-            photographersObjects.push(new Photographer(photographer));
-        });
-
-        return photographersObjects;
+        self.photographers = photographersJson.photographers.map(photographer => {
+            const medias = null;
+            //const medias = response.medias.filter(photographerMedia => photographer.id === photographerMedia.id);
+            // passer instance de medias
+            return new Photographer(photographer, medias);
+        })
+        return self.photographers;
     }
 
-    //static async getPhotographer(id);
+    static async getPhotographer(idPhotographer) {
+
+        const photographers = await self.getPhotographers();
+
+        return photographers.find(photographer => photographer.id === idPhotographer);
+    }
 }
