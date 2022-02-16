@@ -21,7 +21,8 @@ h1.secondary {
   color: #D3573C;
 }
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -111,9 +112,21 @@ header .logo {
 
 .medias-photographer {
   margin: 0 100px;
+  padding: 5rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
+}
+.medias-photographer .media {
+  width: 30rem;
+  height: 30rem;
+  margin: 0 auto;
+}
+.medias-photographer .media img, .medias-photographer .media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .medias-photographer .media .infos-media {
   display: flex;

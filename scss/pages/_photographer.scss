@@ -28,6 +28,33 @@
     }
 }
 
+.medias-photographer {
+    margin: 0 100px;
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    .media {
+        width: 30rem;
+        height: 30rem;
+        margin: 0 auto;
+        img, video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .infos-media {
+            display: flex;
+            justify-content: space-between;
+            p {
+                color: $primary-color;
+                font-size: 1.6rem;
+            } 
+        }
+    }
+}
+
 .short-fixed-infos {
     display: flex;
     justify-content: space-around;

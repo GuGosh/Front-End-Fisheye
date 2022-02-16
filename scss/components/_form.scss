@@ -21,3 +21,17 @@ form {
         border-radius: 5px;
     }
 }
+
+form#filtre {
+    margin: 30px 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+
+    label {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+}
