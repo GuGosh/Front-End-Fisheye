@@ -1,4 +1,5 @@
 import { Photographer } from './Photographer.js';
+import { Media } from './Media.js';
 
 export class Api {
 
@@ -6,26 +7,26 @@ export class Api {
     static photographers;
 
     static async getPhotographers() {
-        if (self.photographers) {
-            return self.photographers;
+        if (Api.photographers) {
+            return Api.photographers;
         }
 
         let response = await fetch(Api.urlApi);
         const photographersJson = await response.json();
 
-        self.photographers = photographersJson.photographers.map(photographer => {
-            const medias = null;
-            //const medias = response.medias.filter(photographerMedia => photographer.id === photographerMedia.id);
-            // passer instance de medias
+        Api.photographers = photographersJson.photographers.map(photographer => {
+            let medias = photographersJson.media.filter(photographerMedia => photographerMedia.photographerId === photographer.id);
+            medias = medias.map(media => new Media(media));
+
             return new Photographer(photographer, medias);
         })
-        return self.photographers;
+        return Api.photographers;
     }
 
     static async getPhotographer(idPhotographer) {
 
-        const photographers = await self.getPhotographers();
+        const photographers = await Api.getPhotographers();
 
-        return photographers.find(photographer => photographer.id === idPhotographer);
+        return photographers.find((photographer) => photographer.id === idPhotographer);
     }
 }
