@@ -1,13 +1,17 @@
-import { Photo } from './Photo.js';
-import { Video } from './Video.js';
-
 export class Media {
+    id;
+    photographerId;
+    title;
+    likes;
+    date;
+    price;
 
     constructor(media) {
-        if (media.image) {
-            return new Photo(media);
-        } else {
-            return new Video(media);
-        }
+        this.id = media.id;
+        this.photographerId = media.photographerId;
+        this.title = media.title;
+        this.likes = media.likes;
+        this.date = media.date;
+        this.price = media.price;
     }
 }

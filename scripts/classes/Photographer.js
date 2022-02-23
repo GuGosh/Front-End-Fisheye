@@ -27,8 +27,14 @@ export class Photographer {
         this.medias = medias;
     }
 
+    getMedia(idMedia) {
+        const media = this.medias.filter(media => media.id === parseInt(idMedia));
+        return media[0];
+    }
+
     getNumberOfLikes() {
         let nbLikes = 0;
+        // reduce
         this.medias.forEach(media => {
             nbLikes += media.likes;
         });
@@ -80,11 +86,11 @@ export class Photographer {
         let html = `<div class="medias-photographer">`
 
         this.medias.forEach(media => {
-            html += `<div class="media">
+            html += `<div class="media" id="${media.id}">
                         ${media.displayMedia()}
                         <div class="infos-media">
                             <p>${media.title}</p>
-                            <p>${media.likes} <i class="fas fa-heart"></i></p>
+                            <p><span>${media.likes}</span> <i class="fas fa-heart icon-heart" data-id="${media.id}"></i></p>
                         </div>
                     </div>`;
         });
@@ -95,7 +101,7 @@ export class Photographer {
 
     getSinglePhotograherShortInfosDom() {
         const html = `<div class="short-fixed-infos">
-                        <p>${this.getNumberOfLikes()} <i class="fas fa-heart"></i></p>
+                        <p><span id="global-likes">${this.getNumberOfLikes()}</span> <i class="fas fa-heart"></i></p>
                         <p>${this.price} €/jour</p>
                     </div>`;
 

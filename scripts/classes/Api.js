@@ -1,5 +1,5 @@
 import { Photographer } from './Photographer.js';
-import { Media } from './Media.js';
+import { FactoryMedia } from './FactoryMedia.js';
 
 export class Api {
 
@@ -16,7 +16,7 @@ export class Api {
 
         Api.photographers = photographersJson.photographers.map(photographer => {
             let medias = photographersJson.media.filter(photographerMedia => photographerMedia.photographerId === photographer.id);
-            medias = medias.map(media => new Media(media));
+            medias = medias.map(media => FactoryMedia.init(media));
 
             return new Photographer(photographer, medias);
         })

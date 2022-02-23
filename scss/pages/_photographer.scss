@@ -50,6 +50,9 @@
             p {
                 color: $primary-color;
                 font-size: 1.6rem;
+                i.icon-heart:hover {
+                    cursor: pointer;
+                }
             } 
         }
     }

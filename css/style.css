@@ -136,6 +136,9 @@ header .logo {
   color: #901C1C;
   font-size: 1.6rem;
 }
+.medias-photographer .media .infos-media p i.icon-heart:hover {
+  cursor: pointer;
+}
 
 .short-fixed-infos {
   display: flex;

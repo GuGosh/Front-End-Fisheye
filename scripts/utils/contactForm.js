@@ -1,5 +1,3 @@
-
-
 const modal = document.getElementById('contact_modal');
 const buttonOpenModal = document.querySelectorAll('.open-modal');
 const buttonCloseModal = document.querySelectorAll('.close-modal');
@@ -13,7 +11,7 @@ buttonCloseModal.forEach(element => {
 });
 
 function displayModal() {
-	modal.style.display = 'block';
+    modal.style.display = 'block';
 }
 
 function closeModal() {

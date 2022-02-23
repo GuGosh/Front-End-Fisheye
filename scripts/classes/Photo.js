@@ -1,21 +1,10 @@
 import { Media } from './Media.js';
 
-export class Photo {
-    id;
-    photographerId;
-    title;
-    likes;
-    date;
-    price;
+export class Photo extends Media {
     image;
 
     constructor(media) {
-        this.id = media.id;
-        this.photographerId = media.photographerId;
-        this.title = media.title;
-        this.likes = media.likes;
-        this.date = media.date;
-        this.price = media.price;
+        super(media);
         this.image = media.image;
     }
 
