@@ -3,10 +3,12 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+
     label {
         color: #312E2E;
-        font-size: 36px;
+        font-size: 30px;
     }
+
     div {
         display: flex;
         flex-direction: column;
@@ -14,11 +16,18 @@ form {
         align-items: self-start;
         margin-bottom: 26px;
     }
-    input {
+
+    input,
+    textarea {
         width: 100%;
-        height: 68px;
+        font-size: 25px;
+        padding: 5px;
         border: none;
         border-radius: 5px;
+    }
+
+    input {
+        height: 35px;
     }
 }
 
