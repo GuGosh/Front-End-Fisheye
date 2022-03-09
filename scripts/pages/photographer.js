@@ -1,5 +1,7 @@
 import { Photographer } from './../classes/Photographer.js';
 import { Api } from './../classes/Api.js';
+import { initModalListener } from './../utils/contactForm.js';
+import { initLikesIconListener } from './../utils/likes.js';
 
 async function init() {
     const params = new URLSearchParams(document.location.search);
@@ -10,44 +12,22 @@ async function init() {
     const photographer_name_contact = document.querySelector('#contact_modal .photographer-name');
     photographer_name_contact.innerHTML = photographer.name;
 
-    return photographer
+    return photographer;
 };
 
 const photographer = await init();
 
-// Increment nb likes
-const iconsHeart = document.querySelectorAll('.icon-heart');
+initModalListener();
 
-iconsHeart.forEach((icon) => icon.addEventListener('click', (event) => {
-    addLike(event.target);
-}));
+initLikesIconListener(photographer);
 
-function addLike(domElement) {
-    const idMedia = domElement.parentNode.parentNode.parentNode.id;
-    const media = photographer.getMedia(idMedia);
-    media.likes++;
-    const html = domElement.previousSibling.previousSibling;
-    html.innerHTML = media.likes;
-
-    const globalLikes = document.querySelector('#global-likes');
-    globalLikes.innerHTML = parseInt(globalLikes.innerHTML) + 1;
-}
-
-const modal = document.getElementById('contact_modal');
-const buttonOpenModal = document.querySelectorAll('body .open-modal');
-const buttonCloseModal = document.querySelectorAll('body .close-modal');
-
-buttonOpenModal.forEach((element) => element.addEventListener('click', displayModal));
-
-buttonCloseModal.forEach((element) => element.addEventListener('click', closeModal));
-
-function displayModal() {
-    modal.style.display = 'flex';
-}
-
-function closeModal() {
-    modal.style.display = 'none';
-}
-
-
-
+// filtre
+const selectFiltre = document.getElementById('liste-filtre');
+selectFiltre.addEventListener('change', (event) => {
+    const medias = document.querySelector('.medias-photographer');
+    medias.remove();
+    const filter_medias = photographer.filterMedias(event.target.value);
+    const userCardDOM = photographer.getSinglePhotograherMediasDom();
+    Photographer.singlePhotographerSection.insertAdjacentHTML('beforeend', userCardDOM);
+    initLikesIconListener(photographer);
+});
