@@ -41,6 +41,46 @@ export class Photographer {
         return nbLikes;
     }
 
+    filterMedias(filtre) {
+        if (filtre == 'titre') {
+            return this.sortMediasByTitle();
+        } else if (filtre == 'popularite') {
+            return this.sortMediasByPopularite();
+        } else if (filtre == 'date') {
+            return this.sortMediasByDate();
+        }
+    }
+
+    sortMediasByTitle() {
+        return this.medias.sort(function compare(a, b) {
+            if (a.title < b.title)
+                return -1;
+            if (a.title > b.title)
+                return 1;
+            return 0;
+        });
+    }
+
+    sortMediasByPopularite() {
+        return this.medias.sort(function compare(a, b) {
+            if (a.likes < b.likes)
+                return -1;
+            if (a.likes > b.likes)
+                return 1;
+            return 0;
+        });
+    }
+
+    sortMediasByDate() {
+        return this.medias.sort(function compare(a, b) {
+            if (a.date < b.date)
+                return -1;
+            if (a.date > b.date)
+                return 1;
+            return 0;
+        });
+    }
+
     getUserCardDOM() {
         const picture = 'assets/photographers/' + this.portrait;
         const html = `<a href="./photographer.html?idPhotographer=${this.id}">
@@ -57,6 +97,7 @@ export class Photographer {
 
     getSinglePhotograherDom() {
         let html = this.getSinglePhotograherHeaderDom();
+        html += this.getSinglePhotograherFiltreDom();
         html += this.getSinglePhotograherMediasDom();
         html += this.getSinglePhotograherShortInfosDom();
 
@@ -78,6 +119,21 @@ export class Photographer {
                                 <img src="${picture}" alt="${this.name}" />
                             </div>
                         </div>`
+
+        return html;
+    }
+
+    getSinglePhotograherFiltreDom() {
+        const html = `<div class="medias-filter">
+                            <form id="filtre">
+                                <label for="liste-filtre">Trier par</label>
+                                <select id="liste-filtre" name="liste-filtre">
+                                    <option value="popularite">Popularité</option>
+                                    <option value="date">Date</option>
+                                    <option value="titre">Titre</option>
+                                </select>
+                            </form>
+                        </div>`;
 
         return html;
     }

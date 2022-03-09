@@ -43,4 +43,13 @@ form#filtre {
         font-weight: bold;
         margin-right: 20px;
     }
+
+    select {
+        background-color: $primary-color;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        color: $white;
+        padding: 10px;
+    }
 }
