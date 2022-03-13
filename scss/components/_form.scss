@@ -31,25 +31,70 @@ form {
     }
 }
 
-form#filtre {
+#filtre {
     margin: 30px 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: auto;
 
-    label {
+    >span {
         font-size: 2rem;
         font-weight: bold;
         margin-right: 20px;
     }
 
-    select {
+    div.list-options {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
         background-color: $primary-color;
         outline: none;
         border: none;
         border-radius: 3px;
         color: $white;
         padding: 10px;
+        font-size: 1.4rem;
+
+        .container-select-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        div.other-options.hide {
+            display: none;
+        }
+
+        div.other-options {
+            position: absolute;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $primary-color;
+            width: 100%;
+
+            span {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            span:not(span:last-child) {
+                border-bottom: 1px solid $white;
+            }
+        }
+
     }
 }

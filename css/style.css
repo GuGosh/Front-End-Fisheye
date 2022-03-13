@@ -201,25 +201,62 @@ form input {
   height: 35px;
 }
 
-form#filtre {
+#filtre {
   margin: 30px 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: auto;
 }
-form#filtre label {
+#filtre > span {
   font-size: 2rem;
   font-weight: bold;
   margin-right: 20px;
 }
-form#filtre select {
+#filtre div.list-options {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
   background-color: #901C1C;
   outline: none;
   border: none;
   border-radius: 3px;
   color: #fff;
   padding: 10px;
+  font-size: 1.4rem;
+}
+#filtre div.list-options .container-select-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#filtre div.list-options .container-select-option:hover {
+  cursor: pointer;
+}
+#filtre div.list-options div.other-options.hide {
+  display: none;
+}
+#filtre div.list-options div.other-options {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #901C1C;
+  width: 100%;
+}
+#filtre div.list-options div.other-options span {
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+#filtre div.list-options div.other-options span:hover {
+  cursor: pointer;
+}
+#filtre div.list-options div.other-options span:not(span:last-child) {
+  border-bottom: 1px solid #fff;
 }
 
 #contact_modal {

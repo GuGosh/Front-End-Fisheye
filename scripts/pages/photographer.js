@@ -21,13 +21,34 @@ initModalListener();
 
 initLikesIconListener(photographer);
 
+const containerSelectOption = document.querySelector('.container-select-option');
+const selectOption = document.querySelector('.selected-option');
+const spanOptions = document.querySelectorAll('span.option-filtre');
+const otherOptions = document.querySelector('.other-options');
+
+spanOptions.forEach((span) => span.addEventListener('click', (event) => {
+    if (listOpen == true) {
+        const medias = document.querySelector('.medias-photographer');
+        medias.remove();
+        const option = event.target.getAttribute('data-option');
+        const filter_medias = photographer.filterMedias();
+        const userCardDOM = photographer.getSinglePhotograherMediasDom(option);
+        Photographer.singlePhotographerSection.insertAdjacentHTML('beforeend', userCardDOM);
+        initLikesIconListener(photographer);
+        otherOptions.classList.add('hide');
+        selectOption.innerHTML = event.target.innerHTML;
+        selectOption.setAttribute('data-option', option);
+    }
+}));
+
 // filtre
-const selectFiltre = document.getElementById('liste-filtre');
-selectFiltre.addEventListener('change', (event) => {
-    const medias = document.querySelector('.medias-photographer');
-    medias.remove();
-    const filter_medias = photographer.filterMedias(event.target.value);
-    const userCardDOM = photographer.getSinglePhotograherMediasDom();
-    Photographer.singlePhotographerSection.insertAdjacentHTML('beforeend', userCardDOM);
-    initLikesIconListener(photographer);
+let listOpen = false;
+containerSelectOption.addEventListener('click', () => {
+    if (otherOptions.classList.contains('hide')) {
+        otherOptions.classList.remove('hide');
+        listOpen = true;
+    } else {
+        otherOptions.classList.add('hide');
+        listOpen = false;
+    }
 });

@@ -125,14 +125,19 @@ export class Photographer {
 
     getSinglePhotograherFiltreDom() {
         const html = `<div class="medias-filter">
-                            <form id="filtre">
-                                <label for="liste-filtre">Trier par</label>
-                                <select id="liste-filtre" name="liste-filtre">
-                                    <option value="popularite">Popularité</option>
-                                    <option value="date">Date</option>
-                                    <option value="titre">Titre</option>
-                                </select>
-                            </form>
+                            <div id="filtre">
+                                <span for="liste-filtre">Trier par</span>
+                                <div role="menu" class="list-options">
+                                    <div class="container-select-option">
+                                        <span class="selected-option option-filtre" data-option="popularite">Popularité</span><i class="fas fa-angle-down"></i>
+                                    </div>
+                                    <div class="other-options hide">
+                                        <span class="option-filtre" data-option="popularite">Popularité</span>
+                                        <span class="option-filtre" data-option="date">Date</span>
+                                        <span class="option-filtre" data-option="titre">Titre</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>`;
 
         return html;
