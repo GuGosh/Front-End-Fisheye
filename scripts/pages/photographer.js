@@ -25,14 +25,14 @@ const containerSelectOption = document.querySelector('.container-select-option')
 const selectOption = document.querySelector('.selected-option');
 const spanOptions = document.querySelectorAll('span.option-filtre');
 const otherOptions = document.querySelector('.other-options');
-
+let listOpen = false;
 spanOptions.forEach((span) => span.addEventListener('click', (event) => {
     if (listOpen == true) {
         const medias = document.querySelector('.medias-photographer');
         medias.remove();
         const option = event.target.getAttribute('data-option');
-        const filter_medias = photographer.filterMedias();
-        const userCardDOM = photographer.getSinglePhotograherMediasDom(option);
+        const filter_medias = photographer.filterMedias(option);
+        const userCardDOM = photographer.getSinglePhotograherMediasDom();
         Photographer.singlePhotographerSection.insertAdjacentHTML('beforeend', userCardDOM);
         initLikesIconListener(photographer);
         otherOptions.classList.add('hide');
@@ -42,7 +42,6 @@ spanOptions.forEach((span) => span.addEventListener('click', (event) => {
 }));
 
 // filtre
-let listOpen = false;
 containerSelectOption.addEventListener('click', () => {
     if (otherOptions.classList.contains('hide')) {
         otherOptions.classList.remove('hide');
