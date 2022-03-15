@@ -13,7 +13,7 @@ async function init() {
     photographer_name_contact.innerHTML = photographer.name;
 
     return photographer;
-};
+}
 
 const photographer = await init();
 
@@ -31,7 +31,7 @@ spanOptions.forEach((span) => span.addEventListener('click', (event) => {
         const medias = document.querySelector('.medias-photographer');
         medias.remove();
         const option = event.target.getAttribute('data-option');
-        const filter_medias = photographer.filterMedias(option);
+        photographer.filterMedias(option);
         const userCardDOM = photographer.getSinglePhotograherMediasDom();
         Photographer.singlePhotographerSection.insertAdjacentHTML('beforeend', userCardDOM);
         initLikesIconListener(photographer);

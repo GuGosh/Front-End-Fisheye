@@ -1,6 +1,3 @@
-import { Api } from './Api.js';
-import { Photo } from './Photo.js';
-import { Video } from './Video.js';
 
 export class Photographer {
 

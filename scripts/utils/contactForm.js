@@ -15,6 +15,6 @@ function displayModal(modal) {
     modal.style.display = 'flex';
 }
 
-function closeModal() {
+function closeModal(modal) {
     modal.style.display = 'none';
 }

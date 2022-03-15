@@ -7,6 +7,6 @@ async function init() {
         const userCardDOM = photographer.getUserCardDOM();
         Photographer.photographersSection.insertAdjacentHTML('beforeend', userCardDOM);
     });
-};
+}
 
 init();
