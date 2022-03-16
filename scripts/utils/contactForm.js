@@ -8,7 +8,9 @@ export function initModalListener() {
         displayModal(modal);
     }));
 
-    buttonCloseModal.forEach((element) => element.addEventListener('click', closeModal));
+    buttonCloseModal.forEach((element) => element.addEventListener('click', () => {
+        closeModal(modal);
+    }));
 }
 
 function displayModal(modal) {
