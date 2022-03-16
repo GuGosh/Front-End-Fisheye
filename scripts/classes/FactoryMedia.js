@@ -1,5 +1,5 @@
-import { Photo } from './Photo.js';
-import { Video } from './Video.js';
+import { Photo } from './../Entity/Photo.js';
+import { Video } from './../Entity/Video.js';
 
 export class FactoryMedia {
     static init(media) {

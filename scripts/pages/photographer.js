@@ -1,4 +1,4 @@
-import { Photographer } from './../classes/Photographer.js';
+import { Photographer } from './../Entity/Photographer.js';
 import { Api } from './../classes/Api.js';
 import { initModalListener } from './../utils/contactForm.js';
 import { initLikesIconListener } from './../utils/likes.js';

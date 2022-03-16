@@ -1,4 +1,4 @@
-import { Photographer } from './../classes/Photographer.js';
+import { Photographer } from './../Entity/Photographer.js';
 import { Api } from './../classes/Api.js';
 
 async function init() {

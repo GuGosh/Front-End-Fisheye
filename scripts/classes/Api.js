@@ -1,4 +1,4 @@
-import { Photographer } from './Photographer.js';
+import { Photographer } from './../Entity/Photographer.js';
 import { FactoryMedia } from './FactoryMedia.js';
 
 export class Api {
