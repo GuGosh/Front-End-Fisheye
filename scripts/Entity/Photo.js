@@ -8,8 +8,8 @@ export class Photo extends Media {
         this.image = media.image;
     }
 
-    displayMedia() {
+    displayMedia(index) {
         const picture = 'assets/images/' + this.image;
-        return `<img src='${picture}' alt="${this.title}"/>`;
+        return `<img src='${picture}' alt="${this.title}" data-index="${index}" />`;
     }
 }

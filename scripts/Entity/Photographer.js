@@ -29,6 +29,10 @@ export class Photographer {
         return media[0];
     }
 
+    getMediaByIndex(indexMedia) {
+        return this.medias[indexMedia];
+    }
+
     getNumberOfLikes() {
         let nbLikes = 0;
         // reduce
@@ -142,15 +146,16 @@ export class Photographer {
 
     getSinglePhotograherMediasDom() {
         let html = `<div class="medias-photographer">`
-
+        let i = 0;
         this.medias.forEach(media => {
             html += `<div class="media" id="${media.id}">
-                        ${media.displayMedia()}
+                        ${media.displayMedia(i)}
                         <div class="infos-media">
                             <p>${media.title}</p>
                             <p><span>${media.likes}</span> <i class="fas fa-heart icon-heart" data-id="${media.id}"></i></p>
                         </div>
                     </div>`;
+            i++;
         });
 
         html += `</div>`;

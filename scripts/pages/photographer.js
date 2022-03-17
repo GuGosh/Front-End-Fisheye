@@ -2,6 +2,7 @@ import { Photographer } from './../Entity/Photographer.js';
 import { Api } from './../classes/Api.js';
 import { initModalListener } from './../utils/contactForm.js';
 import { initLikesIconListener } from './../utils/likes.js';
+import { initMediasListener } from './../utils/lightbox.js';
 
 async function init() {
     const params = new URLSearchParams(document.location.search);
@@ -21,6 +22,8 @@ initModalListener();
 
 initLikesIconListener(photographer);
 
+initMediasListener(photographer);
+
 const containerSelectOption = document.querySelector('.container-select-option');
 const selectOption = document.querySelector('.selected-option');
 const spanOptions = document.querySelectorAll('span.option-filtre');
@@ -35,6 +38,7 @@ spanOptions.forEach((span) => span.addEventListener('click', (event) => {
         const userCardDOM = photographer.getSinglePhotograherMediasDom();
         Photographer.singlePhotographerSection.insertAdjacentHTML('beforeend', userCardDOM);
         initLikesIconListener(photographer);
+        initMediasListener(photographer);
         otherOptions.classList.add('hide');
         selectOption.innerHTML = event.target.innerHTML;
         selectOption.setAttribute('data-option', option);
@@ -51,3 +55,4 @@ containerSelectOption.addEventListener('click', () => {
         listOpen = false;
     }
 });
+

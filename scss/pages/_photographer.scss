@@ -5,20 +5,24 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+
     .infos-photographer {
         h1 {
             font-size: 4.5rem;
         }
+
         span {
             color: $primary-color;
             font-size: 2rem;
         }
+
         p {
             color: $tiers-color;
             font-size: 1.7rem;
             margin-top: 1rem;
         }
     }
+
     img {
         height: 200px;
         width: 200px;
@@ -34,26 +38,36 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
+
     .media {
         width: 30rem;
         height: 30rem;
         margin: 0 auto;
-        img, video {
+
+        img,
+        video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
+
         .infos-media {
             display: flex;
             justify-content: space-between;
+
             p {
                 color: $primary-color;
                 font-size: 1.6rem;
+
                 i.icon-heart:hover {
                     cursor: pointer;
                 }
-            } 
+            }
         }
     }
 }
@@ -69,6 +83,7 @@
     border-top-right-radius: 0.7rem;
     background-color: $secondary-color;
     padding: 10px;
+
     p {
         color: $black;
         font-size: 2rem;
