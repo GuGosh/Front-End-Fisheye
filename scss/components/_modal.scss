@@ -93,6 +93,10 @@
         .previous {
             display: flex;
             align-items: center;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .media-title {
