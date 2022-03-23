@@ -8,9 +8,9 @@ export class Video extends Media {
         this.video = media.video;
     }
 
-    displayMedia(index) {
+    displayMedia(index, autoplay = false) {
         const video = 'assets/videos/' + this.video;
-        const html = `<video data-index="${index}">
+        const html = `<video data-index="${index}"${autoplay ? ' autoplay' : ''}>
                         <source src="${video}"
                                 type="video/mp4">
                         Sorry, your browser doesn't support embedded videos.
