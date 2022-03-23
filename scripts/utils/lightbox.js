@@ -1,3 +1,9 @@
+import { displayModal, closeModal } from './modal.js';
+
+const modalMedia = document.querySelector('#medias-modal');
+const mediaContent = document.querySelector('.media-content');
+const mediaTitle = document.querySelector('.media-title h3');
+
 export function initMediasListener(photographer) {
     const imagesVideosMedias = document.querySelectorAll('.media img, .media video');
     imagesVideosMedias.forEach((media) => media.addEventListener('click', (event) => {
@@ -6,22 +12,16 @@ export function initMediasListener(photographer) {
     }));
 
     const closeModalMediaIcons = document.querySelector('.close-modal-media');
-    closeModalMediaIcons.addEventListener('click', closeModalMedia);
+    closeModalMediaIcons.addEventListener('click', () => {
+        closeModal(modalMedia);
+    });
 }
 
-const modalMedia = document.querySelector('#medias-modal');
-const mediaContent = document.querySelector('.media-content');
-const mediaTitle = document.querySelector('.media-title h3');
 function initModalMedia(index, photographer) {
     // function fillModalMedia()
     const media = photographer.getMediaByIndex(index);
     mediaContent.innerHTML = media.displayMedia(index, true);
     mediaTitle.innerHTML = media.title;
-    // displayModal();
-    modalMedia.style.display = 'flex';
-}
-
-function closeModalMedia() {
-    modalMedia.style.display = 'none';
+    displayModal(modalMedia);
 }
 

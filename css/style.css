@@ -273,10 +273,13 @@ form input {
 }
 
 #contact_modal {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+}
+#contact_modal.hide {
+  display: none;
 }
 #contact_modal .modal {
   border-radius: 5px;
@@ -304,10 +307,13 @@ form input {
 }
 
 #medias-modal {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.8);
+}
+#medias-modal.hide {
+  display: none;
 }
 #medias-modal .window {
   display: grid;
@@ -352,12 +358,13 @@ form input {
 }
 #medias-modal .window .media-content {
   grid-area: 1/2/5/6;
+  text-align: center;
 }
 #medias-modal .window .media-content img,
 #medias-modal .window .media-content video {
   height: 100%;
-  width: 100%;
-  object-fit: contain;
+  width: auto;
+  object-fit: cover;
   object-position: center;
 }
 #medias-modal .window i {

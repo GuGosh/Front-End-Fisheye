@@ -7,10 +7,14 @@
 }
 
 #contact_modal {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, .5);
+
+    &.hide {
+        display: none;
+    }
 
     .modal {
         border-radius: 5px;
@@ -42,10 +46,14 @@
 }
 
 #medias-modal {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, .8); // display: none;
+
+    &.hide {
+        display: none;
+    }
 
     .window {
         display: grid;
@@ -98,12 +106,13 @@
 
         .media-content {
             grid-area: 1 / 2 / 5 / 6;
+            text-align: center;
 
             img,
             video {
                 height: 100%;
-                width: 100%;
-                object-fit: contain;
+                width: auto;
+                object-fit: cover;
                 object-position: center;
             }
         }

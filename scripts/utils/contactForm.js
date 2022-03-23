@@ -1,3 +1,5 @@
+import { displayModal, closeModal } from './modal.js';
+
 export function initModalListener() {
     // Ouverture / Fermeture de Modal
     const modal = document.getElementById('contact_modal');
@@ -11,12 +13,4 @@ export function initModalListener() {
     buttonCloseModal.forEach((element) => element.addEventListener('click', () => {
         closeModal(modal);
     }));
-}
-
-function displayModal(modal) {
-    modal.style.display = 'flex';
-}
-
-function closeModal(modal) {
-    modal.style.display = 'none';
 }
