@@ -19,7 +19,7 @@
     <div class="single-photographer">
     </div>
   </main>
-  <div id="contact_modal" class="modal-layout hide">
+  <div role="dialog" id="contact_modal" class="modal-layout hide" aria-hidden="true">
     <div class="modal">
       <header>
         <h2>Contactez-moi <span class="photographer-name"></span></h2>
@@ -40,11 +40,12 @@
       </form>
     </div>
   </div>
-  <div id="medias-modal" class="modal-layout hide">
+  <div role="dialog" id="medias-modal" class="modal-layout hide" aria-hidden="true">
     <div class="window">
-      <div class="close-modal-media"><i class="fas fa-times"></i></div>
-      <div class="next"><i class="fas fa-angle-right"></i></div>
-      <div class="previous"><i class="fas fa-angle-left"></i></div>
+      <div class="close-modal-media"><i class="fas fa-times" role="button"
+          aria-label="Fermer la modal de visionnage des medias"></i></div>
+      <div class="next"><i class="fas fa-angle-right" role="button" aria-label="Voir le média suivant"></i></div>
+      <div class="previous"><i class="fas fa-angle-left" role="button" aria-label="Voir le média précédent"></i></div>
       <div class="media-title">
         <h3>Titre Media</h3>
       </div>

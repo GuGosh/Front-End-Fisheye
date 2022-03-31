@@ -40,6 +40,8 @@ spanOptions.forEach((span) => span.addEventListener('click', (event) => {
         initLikesIconListener(photographer);
         initMediasListener(photographer);
         otherOptions.classList.add('hide');
+        otherOptions.setAttribute('aria-expanded', false)
+
         selectOption.innerHTML = event.target.innerHTML;
         selectOption.setAttribute('data-option', option);
     }
@@ -49,9 +51,11 @@ spanOptions.forEach((span) => span.addEventListener('click', (event) => {
 containerSelectOption.addEventListener('click', () => {
     if (otherOptions.classList.contains('hide')) {
         otherOptions.classList.remove('hide');
+        otherOptions.setAttribute('aria-expanded', true)
         listOpen = true;
     } else {
         otherOptions.classList.add('hide');
+        otherOptions.setAttribute('aria-expanded', false)
         listOpen = false;
     }
 });

@@ -29,6 +29,7 @@ export function initMediasListener(photographer) {
     })
 
     document.addEventListener('keyup', (event) => {
+        event.preventDefault();
         if (!modalMedia.classList.contains('hide')) {
             if (event.key == 'Escape') {
                 closeModal(modalMedia);

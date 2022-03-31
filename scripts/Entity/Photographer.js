@@ -117,7 +117,7 @@ export class Photographer {
                                 <button class="contact open-modal">Contactez-moi</button>
                             </div>
                             <div class="image-photographer">
-                                <img src="${picture}" alt="${this.name}" />
+                                <img src="${picture}" alt="Portrait de ${this.name}" />
                             </div>
                         </div>`
 
@@ -130,9 +130,9 @@ export class Photographer {
                                 <span for="liste-filtre">Trier par</span>
                                 <div role="menu" class="list-options">
                                     <div class="container-select-option">
-                                        <span class="selected-option option-filtre" data-option="popularite">Popularité</span><i class="fas fa-angle-down"></i>
+                                        <span role="button" class="selected-option option-filtre" data-option="popularite">Popularité</span><i class="fas fa-angle-down"></i>
                                     </div>
-                                    <div class="other-options hide">
+                                    <div class="other-options hide" role="list" aria-expanded="false">
                                         <span class="option-filtre" data-option="popularite">Popularité</span>
                                         <span class="option-filtre" data-option="date">Date</span>
                                         <span class="option-filtre" data-option="titre">Titre</span>
@@ -152,7 +152,7 @@ export class Photographer {
                         ${media.displayMedia(i)}
                         <div class="infos-media">
                             <p>${media.title}</p>
-                            <p><span>${media.likes}</span> <i class="fas fa-heart icon-heart" data-id="${media.id}"></i></p>
+                            <p><span>${media.likes}</span> <i class="fas fa-heart icon-heart" data-id="${media.id}" aria-label="Ajouter un j'aime" role="button"></i></p>
                         </div>
                     </div>`;
             i++;
@@ -164,7 +164,7 @@ export class Photographer {
 
     getSinglePhotograherShortInfosDom() {
         const html = `<div class="short-fixed-infos">
-                        <p><span id="global-likes">${this.getNumberOfLikes()}</span> <i class="fas fa-heart"></i></p>
+                        <p><span id="global-likes" aria-label="Nombre de j'aime global récolté par le photographe">${this.getNumberOfLikes()}</span> <i class="fas fa-heart" aria-hidden></i></p>
                         <p>${this.price} €/jour</p>
                     </div>`;
 
