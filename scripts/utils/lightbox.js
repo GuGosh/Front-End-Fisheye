@@ -28,6 +28,10 @@ export function initMediasListener(photographer) {
         showPreviousMedia(photographer);
     })
 
+    document.addEventListener('keydown', (event) => {
+        event.preventDefault();
+    });
+
     document.addEventListener('keyup', (event) => {
         event.preventDefault();
         if (!modalMedia.classList.contains('hide')) {

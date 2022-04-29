@@ -10,7 +10,7 @@ export class Video extends Media {
 
     displayMedia(index, autoplay = false) {
         const video = 'assets/videos/' + this.video;
-        const html = `<video data-index="${index}"${autoplay ? ' autoplay' : ''}>
+        const html = `<video data-index="${index}"${autoplay ? ' autoplay' : ''} alt="${this.title}">
                         <source src="${video}"
                                 type="video/mp4">
                         Sorry, your browser doesn't support embedded videos.

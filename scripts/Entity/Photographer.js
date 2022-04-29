@@ -133,9 +133,9 @@ export class Photographer {
                                         <span role="button" class="selected-option option-filtre" data-option="popularite">Popularité</span><i class="fas fa-angle-down"></i>
                                     </div>
                                     <div class="other-options hide" role="list" aria-expanded="false">
-                                        <span class="option-filtre" data-option="popularite">Popularité</span>
-                                        <span class="option-filtre" data-option="date">Date</span>
-                                        <span class="option-filtre" data-option="titre">Titre</span>
+                                        <span role="menuitem" class="option-filtre" data-option="popularite">Popularité</span>
+                                        <span role="menuitem" class="option-filtre" data-option="date">Date</span>
+                                        <span role="menuitem" class="option-filtre" data-option="titre">Titre</span>
                                     </div>
                                 </div>
                             </div>
@@ -148,13 +148,13 @@ export class Photographer {
         let html = `<div class="medias-photographer">`
         let i = 0;
         this.medias.forEach(media => {
-            html += `<div class="media" id="${media.id}">
+            html += `<a href="#" class="media" id="${media.id}" aria-label="Ouvrir modal média">
                         ${media.displayMedia(i)}
                         <div class="infos-media">
                             <p>${media.title}</p>
-                            <p><span>${media.likes}</span> <i class="fas fa-heart icon-heart" data-id="${media.id}" aria-label="Ajouter un j'aime" role="button"></i></p>
+                            <p><span aria-label="Nombre de j'aime sur le média">${media.likes}</span> <i class="fas fa-heart icon-heart" data-id="${media.id}" aria-label="Ajouter un j'aime" role="button"></i></p>
                         </div>
-                    </div>`;
+                    </a>`;
             i++;
         });
 
